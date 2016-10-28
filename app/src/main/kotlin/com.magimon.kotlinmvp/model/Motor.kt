@@ -10,7 +10,7 @@ class Motor {
     }
 
     fun accelerate(value: Int) {
-        rpm = rpm + value
+        rpm += value
     }
 
     fun setSpeed(value: Int) {
