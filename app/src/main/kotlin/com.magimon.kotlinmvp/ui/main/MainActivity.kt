@@ -1,14 +1,14 @@
-package com.magimon.kotlinmvp
+package com.magimon.kotlinmvp.ui.main
 
+import com.magimon.kotlinmvp.R
 import com.magimon.kotlinmvp.base.BaseActivity
-import com.magimon.kotlinmvp.presenter.MainPresenterImpl
-import com.magimon.kotlinmvp.presenter.Presenter
-import com.magimon.kotlinmvp.view.MainView
+import com.magimon.kotlinmvp.mvp.presenter.Presenter
+import com.magimon.kotlinmvp.ui.main.view.MainView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), MainView {
 
-    private var presenter: MainPresenterImpl? = null
+    private var presenter: MainPresenter? = null
 
     override val contentViewResource: Int
         get() = R.layout.activity_main
@@ -26,8 +26,8 @@ class MainActivity : BaseActivity(), MainView {
         }
     }
 
-    override fun getViewListener(): Presenter<*>? {
-        return presenter
+    override fun getViewListener(): Presenter {
+        return presenter!!
     }
 
     override fun onUpdateSpeed(speed: Int) {

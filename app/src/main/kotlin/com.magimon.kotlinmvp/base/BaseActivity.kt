@@ -2,8 +2,8 @@ package com.magimon.kotlinmvp.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.magimon.kotlinmvp.presenter.Presenter
-import com.magimon.kotlinmvp.presenter.ViewListener
+import com.magimon.kotlinmvp.mvp.view.ActivityViewListener
+import com.magimon.kotlinmvp.mvp.presenter.Presenter
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -11,19 +11,19 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun onInit()
 
-    protected abstract fun getViewListener(): Presenter<*>?
+    protected abstract fun getViewListener(): Presenter?
 
-    protected var viewListener: ViewListener? = null
+    protected var viewListener: ActivityViewListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(contentViewResource)
         onInit()
 
-        this.viewListener = getViewListener()
+        this.viewListener = getViewListener() as ActivityViewListener
 
         if (this.viewListener != null) {
-            this.viewListener!!.onCreate()
+            this.viewListener!!.onCreate(savedInstanceState)
         }
     }
 

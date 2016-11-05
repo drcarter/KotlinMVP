@@ -2,6 +2,9 @@ package com.magimon.kotlinmvp.model
 
 class Vehicle(private val motor: Motor) {
 
+    val speed: Int
+        get() = motor.rpm
+
     fun increaseSpeed(value: Int) {
         motor.accelerate(value)
     }
@@ -9,7 +12,4 @@ class Vehicle(private val motor: Motor) {
     fun stop() {
         motor.brake()
     }
-
-    val speed: Int
-        get() = motor.rpm
 }
