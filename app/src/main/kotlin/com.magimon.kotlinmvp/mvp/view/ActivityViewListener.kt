@@ -1,7 +1,7 @@
 package com.magimon.kotlinmvp.mvp.view
 
 import android.os.Bundle
-import com.magimon.kotlinmvp.mvp.presenter.ViewListener
+import com.magimon.kotlinmvp.mvp.view.ViewListener
 
 interface ActivityViewListener : ViewListener {
 

@@ -1,7 +1,6 @@
 package com.magimon.kotlinmvp.mvp.view
 
 import android.os.Bundle
-import com.magimon.kotlinmvp.mvp.presenter.ViewListener
 
 interface FragmentViewListener : ViewListener {
 
